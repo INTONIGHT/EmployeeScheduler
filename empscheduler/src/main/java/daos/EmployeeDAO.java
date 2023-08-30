@@ -3,7 +3,9 @@ package daos;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import modules.DailyEmployeeSchedule;
 import modules.Employee;
+
 
 public class EmployeeDAO {
 	//This will handle setting up methods for an employee as well as anything else
@@ -25,5 +27,10 @@ public class EmployeeDAO {
 		Employee e = new Employee();
 		//this is where youd run some sql code so build that out
 		return e;
+	}
+	public DailyEmployeeSchedule getDailyScheduleById(int id) {
+		DailyEmployeeSchedule des = new DailyEmployeeSchedule();
+		
+		return des;
 	}
 }

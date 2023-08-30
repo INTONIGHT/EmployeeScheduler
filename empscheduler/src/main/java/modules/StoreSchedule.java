@@ -7,7 +7,7 @@ import java.util.Objects;
 //this will try to combine some of the work done in employee and store to help be the basis for what a weekly schedule will contain
 //the goal is to have each day and then assign employees based off of eneds and then show for each hour of each day who is working
 //it can also help keep track of times etc
-public class Schedule {
+public class StoreSchedule {
 	//so we want to have each hour of a day containing whos working that hour.
 	//we also want a day with the people working and the times they are working. each person can work mutliple shifts
 	//can also run a total of scheduled hours
@@ -18,11 +18,11 @@ public class Schedule {
 	private HashMap<String,HashMap<String,ArrayList<Double>>> dailyViewSchedule;
 	private double hoursScheduled;
 	
-	public Schedule() {
+	public StoreSchedule() {
 		super();
 	}
 	
-	public Schedule(HashMap<String, ArrayList<String>> hoursPeopleScheduled,
+	public StoreSchedule(HashMap<String, ArrayList<String>> hoursPeopleScheduled,
 			HashMap<String, HashMap<String, ArrayList<Double>>> dailyViewSchedule, double hoursScheduled) {
 		super();
 		this.hoursPeopleScheduled = hoursPeopleScheduled;
@@ -61,7 +61,7 @@ public class Schedule {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Schedule other = (Schedule) obj;
+		StoreSchedule other = (StoreSchedule) obj;
 		return Objects.equals(dailyViewSchedule, other.dailyViewSchedule)
 				&& Objects.equals(hoursPeopleScheduled, other.hoursPeopleScheduled)
 				&& Double.doubleToLongBits(hoursScheduled) == Double.doubleToLongBits(other.hoursScheduled);
