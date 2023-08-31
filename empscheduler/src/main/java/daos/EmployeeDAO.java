@@ -34,10 +34,19 @@ public class EmployeeDAO {
 	}
 	//not fully implemented
 	
-	public DailyEmployeeSchedule getDailyScheduleById(int id) {
-		DailyEmployeeSchedule des = new DailyEmployeeSchedule();
-		
-		return des;
+	public ArrayList<DailyEmployeeSchedule> getDailyScheduleById(int id) {
+		ArrayList<DailyEmployeeSchedule> weeklySchedule = new ArrayList<>();
+		Employee e = getEmployeeById(id);
+		HashMap<String, ArrayList<Double>> weeklyTimes = e.getDailyHoursAvailable();
+		weeklyTimes.forEach((k,v) ->{
+			DailyEmployeeSchedule des = new DailyEmployeeSchedule();
+			des.setDay(k);
+			des.setTimes(v);
+			des.setFirstName(e.getFirstName());
+			des.setLastName(e.getLastName());
+			weeklySchedule.add(des);
+		});
+		return weeklySchedule;
 	}
 	//UPDATE methods
 	public void updateSchedule(HashMap<String, ArrayList<Double>> employeeAvailability, int id) {
